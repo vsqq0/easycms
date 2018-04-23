@@ -4,9 +4,9 @@ FROM rails:5
 WORKDIR /app
 COPY . .
 
-RUN gem install bundler && bundle install && rails db:migrate
-
-# RUN secret='rake secret RAILS_ENV=production' && export SECRET_KEY_BASE=`${secret}` && echo `SECRET_KEY_BASE=${secret}` >> .env
+RUN gem install bundler  && bundle install
+RUN rails db:migrate
+# && gem install passenger && rvmsudo passenger-install-nginx-module RUN secret='rake secret RAILS_ENV=production' && export SECRET_KEY_BASE=`${secret}` && echo `SECRET_KEY_BASE=${secret}` >> .env
 
 
 EXPOSE 3000
