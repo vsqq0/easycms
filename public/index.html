@@ -9,18 +9,22 @@
   <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
   <script src="fastclick.js"></script>
   <script>
-    if ('addEventListener' in document) {
-      document.addEventListener('DOMContentLoaded', function () {
-        FastClick.attach(document.body);
-      }, false);
-    }
-    if (!window.Promise) {
-      document.writeln('<script src="es6-promise.min.js"' + '>' + '<' + '/' + 'script>');
-    }
+    $.ajax({
+      type: "get",
+      url: "categories",
+      dataType: "json",
+      async: false,
+      error: function (request) {
+        console.log(request)
+      },
+      success: function (data) {
+        console.log(data,'index')
+      }
+    });
   </script>
 </head>
 
-<body>
+<body>index
   <div id="root"></div>
   <script src="index.js"></script>
 

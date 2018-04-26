@@ -4,7 +4,7 @@ services:
   cms:
     build: .
     ports:
-      - "81:3000"
+      - "3000:3000"
     volumes:
       - ".:/app"
-    command: "rails server"
+    command: "rails server -e production"
