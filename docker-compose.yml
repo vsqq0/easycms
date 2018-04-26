@@ -1,8 +1,10 @@
-version: "2"
+version: "3"
 
 services:
   cms:
-    build: .
+    build:
+      context: ./
+      dockerfile: Dockerfile-cms
     ports:
       - "3000:3000"
     volumes:

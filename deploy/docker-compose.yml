@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  deploy:
+    build:
+      context: ./
+      dockerfile: Dockerfile-deploy
+    ports:
+      - "7777:7777"
+    volumes:
+      - ".:/app"
+    command: "node webhook.js"
