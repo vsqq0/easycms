@@ -18,7 +18,7 @@ handler.on('error', err => {
  
 handler.on('push', event => {
   console.log(event)
-  rumCommand('sh', ['./auto_build.sh'], txt => {
+  rumCommand('sh', ['./build.sh'], txt => {
     console.log(txt)
   })
 })
