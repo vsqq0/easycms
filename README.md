@@ -1,3 +1,6 @@
+开启生产环境前必须数据库迁移
+rails db:migrate RAILS_ENV=production
+
 生产环境生成 key 覆盖 config/secrets.yml 里的 secret_key_base
 $ rake secret RAILS_ENV=production
 
@@ -42,3 +45,5 @@ gem 'fog-aws',                 '2.0.0'
 gem 'nokogiri',                '1.8.1'
 rails generate uploader Picture
 mount_uploader :picture, PictureUploader
+
+dotenv config/application.yml 注释

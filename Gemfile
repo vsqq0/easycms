@@ -21,7 +21,6 @@ gem 'puma', '~> 3.7'
 # gem 'capistrano-rails', group: :development
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem 'rack-cors'
 # 分页
 gem 'kaminari'
 
@@ -30,17 +29,26 @@ gem 'carrierwave',             '1.1.0'
 gem 'mini_magick',             '4.7.0'
 gem 'fog-aws',                 '2.0.0'
 gem 'nokogiri',                '1.8.2'
+# 跨域白名单
+gem 'rack-cors'
+# 跨域黑名单
+# gem 'rack-attack'
+
+# platforms :ruby do
+#   gem 'unicorn'
+# end
+
 # gem 'sqlite3'
 # gem 'pg', '0.20.0'
 # gem 'mysql2'
 
 gem 'active_model_serializers', "~> 0.10.7", git: 'https://github.com/agideo/active_model_serializers.git'
-gem 'dotenv-rails'
+# gem 'dotenv-rails'
 
 group :production do
-  gem 'sqlite3'
+  # gem 'sqlite3'
 
-  # gem 'pg', '0.20.0'
+  gem 'pg', '0.20.0'
 end
 
 group :development, :test do
