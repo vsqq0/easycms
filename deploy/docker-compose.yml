@@ -5,6 +5,8 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile-deploy
+    volumes:
+      - ./webhook.js:/app/webhook.js
     ports:
       - "7777:7777"
     command: "node webhook.js"

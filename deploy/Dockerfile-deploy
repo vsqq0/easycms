@@ -1,6 +1,5 @@
 FROM registry.docker-cn.com/library/node:9.5.0
 
 WORKDIR /app
-COPY . .
 
 RUN npm i -S coding-webhook-handler

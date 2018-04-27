@@ -11,13 +11,13 @@ http.createServer((req, res) => {
     res.end('no such location')
   })
 }).listen(7777)
- 
-handler.on('error', err => {
-  console.error('Error:', err.message)
+
+handler.on('error', (err,a) => {
+  console.error('Errora:', err.message,a.url,a.method)
 })
- 
+
 handler.on('push', event => {
-  console.log(event)
+  console.log(event,'push')
   // rumCommand('sh', ['./build.sh'], txt => {
   //   console.log(txt)
   // })
