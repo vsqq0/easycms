@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+sudo apt install docker.io
+sudo apt install docker-compose
+sudo apt install nodejs-legacy
 
-git pull origin master
-echo "pull successful!"
+echo "successful!"
