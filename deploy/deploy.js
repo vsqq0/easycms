@@ -8,7 +8,7 @@ var deployServer = http.createServer(function(request, response) {
   console.log(request.url,request.url.search(/deploy\/?$/i))
   if (request.url.search(/deploy\/?$/i) > 0) {
     var commands = [
-      'echo 123'
+      'ls'
     ].join(' && ')
     exec(commands, function(err, out, code) {
       if (err instanceof Error) {
