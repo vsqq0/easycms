@@ -5,7 +5,7 @@ const PORT = 9988
   , PATH = '../html'
 
 var deployServer = http.createServer(function(request, response) {
-  console.log(request.url,request.url.search(/deploy\/?$/i),request)
+  console.log(request.url,request.url.search(/deploy\/?$/i),request.method,request.headers['x-git-oschina-event'])
   if (request.url.search(/deploy\/?$/i) > 0) {
     var commands = [
       'cd ..',,
