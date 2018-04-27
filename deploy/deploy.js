@@ -5,12 +5,12 @@ const PORT = 9988
   , PATH = '../html'
 
 var deployServer = http.createServer(function(request, response) {
-  console.log(request.url,request.url.search(/deploy\/?$/i))
+  console.log(request.url,request.url.search(/deploy\/?$/i),request)
   if (request.url.search(/deploy\/?$/i) > 0) {
     var commands = [
-      'cd ..',
+      'cd ..',,
       'ls',
-      'sudo git pull',,
+      'sudo git pull',
       'echo git pull done',
       'sudo docker-compose down',
       'echo docker down, please wait reload...',
