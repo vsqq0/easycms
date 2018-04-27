@@ -9,10 +9,15 @@ var deployServer = http.createServer(function(request, response) {
   if (request.url.search(/deploy\/?$/i) > 0) {
     var commands = [
       'cd ..',
-      'sudo git pull',
+      'ls',
+      'sudo git pull',,
+      'echo git pull done',
       'sudo docker-compose down',
+      'echo docker down, please wait reload...',
       'sudo docker-compose build',
-      'sudo docker-compose up -d'
+      'echo docker build done, please wait start...',
+      'sudo docker-compose up -d',
+      'done!'
     ].join(' && ')
     exec(commands, function(err, out, code) {
       if (err instanceof Error) {
