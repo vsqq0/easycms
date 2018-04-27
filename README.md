@@ -1,4 +1,5 @@
 docker --registry-mirror=https://registry.docker-cn.com daemon
+
 开启生产环境前必须数据库迁移
 rails db:migrate RAILS_ENV=production
 
