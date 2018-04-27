@@ -1,4 +1,4 @@
-FROM rails:5
+FROM registry.docker-cn.com/library/rails:5
 
 WORKDIR /app
 COPY . .

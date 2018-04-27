@@ -1,3 +1,8 @@
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl software-properties-common 
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"  
+
+docker --registry-mirror=https://registry.docker-cn.com daemon
 开启生产环境前必须数据库迁移
 rails db:migrate RAILS_ENV=production
 
