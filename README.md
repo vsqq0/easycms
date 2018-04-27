@@ -1,10 +1,17 @@
-docker --registry-mirror=https://registry.docker-cn.com daemon
-1
 开启生产环境前必须数据库迁移
 rails db:migrate RAILS_ENV=production
 
 生产环境生成 key 覆盖 config/secrets.yml 里的 secret_key_base
 $ rake secret RAILS_ENV=production
+docker --registry-mirror=https://registry.docker-cn.com daemon
+
+sudo ssh-keygen -t rsa -C "1379393531@qq.com"
+sudo cat /root/.ssh/id_rsa.pub
+sudo ssh -T git@gitee.com
+sudo git clone git@gitee.com:vsqq0/demo.git
+cd demo
+sudo ./init.sh
+sudo chmod +x init.sh
 
 docker-compose rm 关闭多余的容器
 docker-compose build 重新构建 dockerFile

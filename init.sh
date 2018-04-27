@@ -4,8 +4,13 @@ sudo apt install docker-compose
 sudo apt install nodejs-legacy
 sudo apt install npm
 
+sudo docker-compose build
+sudo docker-compose up -d
+
 cd deploy
 sudo npm i
-sudo ./deploy.sh
 
-echo "successful!"
+cd ..
+
+sudo ./deploy.sh
+echo "init successful!"

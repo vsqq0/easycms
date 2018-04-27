@@ -1,7 +1,0 @@
-FROM registry.docker-cn.com/library/node:9.5.0
-
-WORKDIR /app
-COPY ./build.sh .
-COPY ./deploy.js .
-
-RUN npm i -S exec && chmod +x build.sh
