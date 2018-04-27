@@ -9,8 +9,5 @@ sudo docker-compose up -d
 
 cd deploy
 sudo npm i
+node deploy.js
 
-cd ..
-
-sudo ./deploy.sh
-echo "init successful!"
