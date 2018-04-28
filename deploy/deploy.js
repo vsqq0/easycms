@@ -8,15 +8,15 @@ var deployServer = http.createServer(function(request, response) {
   console.log(request.url,request.url.search(/deploy\/?$/i),request.method,request.headers['x-git-oschina-event'])
   if (request.url.search(/deploy\/?$/i) > 0) {
     var commands = [
-      'cd ..',,
+      'cd ..',
       'ls',
       'sudo git pull',
       'echo git pull done',
       'sudo docker-compose down',
-      'echo docker down, please wait reload...',
-      'sudo docker-compose build',
-      'echo docker build done, please wait start...',
-      'sudo docker-compose up -d',
+      // 'echo docker down, please wait reload...',
+      // 'sudo docker-compose build',
+      // 'echo docker build done, please wait start...',
+      // 'sudo docker-compose up -d',
       'done!'
     ].join(' && ')
     exec(commands, function(err, out, code) {

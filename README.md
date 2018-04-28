@@ -5,8 +5,20 @@ sudo git clone git@gitee.com:vsqq0/demo.git
 cd demo
 sudo ./init.sh
 
-sudo chmod +x init.sh
-1
+部署
+git tag v1.0
+git push origin --tag
+
+nohup node deploy.js &
+sudo cat /home/ubuntu/nohup.out
+jobs -l
+kill -9 xxxx
+
+变成可执行文件
+sudo chmod +x init.sh 
+
+停止nginx
+nginx -s stop
 开启生产环境前必须数据库迁移
 rails db:migrate RAILS_ENV=production
 
