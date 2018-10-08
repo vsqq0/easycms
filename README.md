@@ -69,3 +69,40 @@ rails generate uploader Picture
 mount_uploader :picture, PictureUploader
 
 dotenv config/application.yml 注释
+
+docker容器互相访问端口demo，server容器暴露自己的8001端口，nginx配置文件通过访问http://server:8001来访问server容器的8001端口
+
+version: "3"
+services:
+  nginx:
+    image: registry.docker-cn.com/library/nginx
+    volumes:
+      - .:/usr/share/nginx/html
+      - ./nginx/conf/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/logs:/var/log/nginx
+      - ./nginx/cert:/etc/nginx/cert
+    ports:
+      - "443:443"
+      - "80:80"
+    depends_on:
+      - server
+      - post
+    command: "nginx -g 'daemon off;'"
+
+  server:
+    image: hub.c.163.com/library/node:latest
+    expose:
+      - "8001"
+    volumes:
+      - ./:/app
+    restart: always
+    working_dir: /app
+    command: "node ./deploy/deploy-server.js"
+  
+  post:
+    image: hub.c.163.com/library/node:latest
+    volumes:
+      - ./:/app
+    # restart: always
+    working_dir: /app
+    command: "node ./deploy/deploy.js"   
